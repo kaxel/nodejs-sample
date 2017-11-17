@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-sample",
+  "version": "1.0.0",
+  "description": "node sample site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaxel/nodejs-sample.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaxel/nodejs-sample/issues"
+  },
+  "homepage": "https://github.com/kaxel/nodejs-sample#readme",
+  "devDependencies": {
+    "webpack": "^3.8.1"
+  }
+}
