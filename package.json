@@ -19,5 +19,8 @@
   "homepage": "https://github.com/kaxel/nodejs-sample#readme",
   "devDependencies": {
     "webpack": "^3.8.1"
+  },
+  "dependencies": {
+    "foreman": "2.0.0"
   }
 }
