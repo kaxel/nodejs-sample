@@ -26,12 +26,12 @@ module.exports = function(app){
 		let sql = 'select id, first, last from names';
 		let query = db.query(sql, (err, result) => {
 			if(err) throw err;
-			console.log(result);
+			//console.log(result);
 			
 			var rows = result.map(function(x) {
    			    return x.first + " " + x.last + " : " + x.id;
 			});
-			console.log(rows);
+			//console.log(rows);
 			
 			res.render('list', {names: rows });
 		});
@@ -40,8 +40,27 @@ module.exports = function(app){
 	});
 	
 	app.post('/list', urlEncodedParser, function(req, res){
-		data.push(req.body);
-		res.json(data);
+		// gather fields for INSERT
+		var firstname = req.body.firstname;
+		var lastname = req.body.lastname;
+		var address_street = req.body.address_street;
+		var address_city = req.body.address_city;
+		var address_state = req.body.address_state;
+		var address_zip = req.body.address_zip;
+		console.log(firstname + " " + lastname + " at " + address_street + " in " + address_city + ", " + address_state + " " + address_zip);
+		console.log("is being added to the database.");
+		
+		// INSERT QUERY
+		let sql = "INSERT INTO `names` (`first`, `last`, `address`, `city`, `state`, `zip`) VALUES ('" + firstname + "', '" + lastname + "', '" + address_street + "', '" + address_city + "', '" + address_state + "', '" + address_zip + "');";
+		//console.log(sql);
+		let query = db.query(sql, (err, result) => {
+			if(err) {throw err}
+			else {
+				//cleanup
+				console.log("time to add " + firstname + " to the front end.");
+			};
+			res.redirect('/list');
+		});
 	});
 	
 	//use req.params.item for delete
@@ -49,7 +68,7 @@ module.exports = function(app){
 	app.delete('/list/:item', function(req, res){
 		// get list
 		let sql = 'delete from names where id=' + req.params.item + ";";
-		console.log(sql);
+		//console.log(sql);
 		let query = db.query(sql, (err, result) => {
 			if(err) 
 				{throw err;} 

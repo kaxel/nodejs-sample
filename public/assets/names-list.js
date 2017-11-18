@@ -27,7 +27,7 @@ $(document).ready(function(){
         url: '/list/' + target_id,
         success: function(data){
           //refresh the page - remove li
-			console.log("cool beans");
+			console.log("deleted succesfully.");
         }
       });
   });

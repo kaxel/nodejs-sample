@@ -1,47 +1,71 @@
-<html>
-  <head>
-  	<title>Node JS Sample</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="/assets/names-list.js"></script>
-	<link href="/assets/styles.css" rel="stylesheet" type="text/css"/>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Node JS Sample</title>
 
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="/assets/styles.css" rel="stylesheet" type="text/css"/>
 
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  </head>
-  <body>
-	  <h1>Node JS sample for RVTD</h1>
-	  
-	  <div class="container">
-		  <div class="row">
-			  <form>
-			    <input type="text" name="record" placeholder="Add new record..." required />
-			    <button type="submit">Add Record</button>
-			  </form>
-		  </div>
-	    <div class="row">
-	      <div class="col-sm">
-  	  	    <div id="list-table">
-  	  		  <ul>
-  	  		    <% for (var i=0; i < names.length; i++){%>
-  	  			  <li id=<%=id=Math.abs(parseInt(names[i].split(":")[1]))%>><%= names[i].split(":")[0] %></li>
-  	  			<% } %>
-  	  		  </ul>
-  	  	    </div>
-	      </div>
-	      <div class="col-sm">
-	  	  
-	      </div>
-	    </div>
+    
+	<meta charset="utf-8">
+    <meta name="description" content="written for RVTD">
+    <meta name="author" content="Krister Axel">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="shortcut icon" href="http://www.iconj.com/ico/z/6/z6zkji568o.ico" type="image/x-icon" />
+</head>
+<body>
+	
+  <div class="container">
+	  <div class="row">
+		  <form method="POST">
+			  <table class="table">
+			    <tbody>
+			      <tr>
+			        <th scope="row">Name</th>
+			        <td><input type="text" name="firstname" placeholder="firstname" required /></td>
+			        <td><input type="text" name="lastname" placeholder="lastname" required /></td>
+			      </tr>
+			      <tr>
+			        <th scope="row">Address</th>
+			        <td><input type="text" name="address_street" placeholder="your address" required /></td>
+			      </tr>
+			      <tr>
+			        <th scope="row">City, state</th>
+			        <td><input type="text" name="address_city" placeholder="City" required /></td>
+			        <td><input type="text" name="address_state" placeholder="State" required /></td>
+			      </tr>
+			      <tr>
+			        <th scope="row">zip</th>
+			        <td><input type="text" name="address_zip" placeholder="Zip code" required /></td>
+					<td><button type="submit">Add Record</button></td>
+			      </tr>
+			    </tbody>
+			  </table>
+		    
+		    
+		  </form>
 	  </div>
-	  
-	  
-	  
-	  
-	  
-  </body>
+      <div class="row">
+		  <div class="col">
+    	  	      <div id="list-table">
+    	  		    <ul>
+    	  		      <% for (var i=0; i < names.length; i++){%>
+    	  			    <li id=<%=id=Math.abs(parseInt(names[i].split(":")[1]))%>><%= names[i].split(":")[0] %></li>
+    	  			  <% } %>
+    	  		    </ul>
+    	  	      </div>
+	      </div>
+	  </div>
+  </div>
+	
+</body>
 </html>

@@ -1,13 +1,4 @@
 
-#list-table{
-    position: relative;
-    width: 95%;
-    background: gray;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
 #list-table form:after{
     margin: 0;
     content: '';
@@ -26,15 +17,13 @@ input[type="text"]{
 }
 
 button{
-    padding: 15px;
-    width: 30%;
-    float: right;
-    background: white;
-    border: 0;
+    width: 75%;
+    padding: 10px;
     box-sizing: border-box;
-    color: black;
-    cursor: pointer;
+    font-family: arial;
     font-size: 20px;
+    cursor: pointer;
+    letter-spacing: 1px;
 }
 
 ul{
