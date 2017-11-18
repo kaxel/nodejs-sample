@@ -37,4 +37,4 @@ VALUES
 	
 INSERT INTO `names` (`first`, `last`, `address`, `city`, `state`, `zip`)
 VALUES
-	('David', 'Letterman', '22 Memory lane', 'North Salem', 'NY', '10560');
+	('David', 'Letterman', 'Mamas Farm', 'North Salem', 'NY', '10560');
