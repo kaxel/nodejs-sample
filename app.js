@@ -1,5 +1,21 @@
 const express = require('express');
-const  listController = require('./controllers/listController');
+const listController = require('./controllers/listController');
+const mysql = require('mysql');
+
+//connect to the database;
+const db = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : '',
+  database : 'nodely'
+});
+
+db.connect((err) => {
+	if(err){
+		throw err;
+	}
+	console.log('Mysql connected.');
+});
 
 const app = express();
 
