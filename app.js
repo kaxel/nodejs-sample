@@ -1,7 +1,7 @@
-const express = require('express');
-const listController = require('./controllers/listController');
+var express = require('express');
+var listController = require('./controllers/listController');
 
-const app = express();
+var app = express();
 
 //set up the template engine
 app.set('view engine', 'ejs'); 

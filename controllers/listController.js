@@ -48,12 +48,15 @@ module.exports = function(app){
 	
 	app.delete('/list/:item', function(req, res){
 		// get list
-		let sql = 'delete from names where id=' + Math.abs(parseInt(req.params.item.split(":")[1])) + ";";
+		let sql = 'delete from names where id=' + req.params.item + ";";
 		console.log(sql);
 		let query = db.query(sql, (err, result) => {
-			if(err) throw err;
-			console.log(result);
-			// get jquery to remove the div - TODO
+			if(err) 
+				{throw err;} 
+			else 
+			{//cleanup
+				console.log("remove id=" + req.params.item);
+			};
 			res.redirect('/list');
 		});
 		

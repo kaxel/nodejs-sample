@@ -1,19 +1,14 @@
-body{
-    background: #0d1521;
-    font-family: tahoma;
-    color: #989898;
-}
 
-#todo-table{
+#list-table{
     position: relative;
     width: 95%;
-    background: #090d13;
+    background: gray;
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
 }
 
-#todo-table form:after{
+#list-table form:after{
     margin: 0;
     content: '';
     display: block;
@@ -22,7 +17,7 @@ body{
 
 input[type="text"]{
     width: 70%;
-    padding: 20px;
+    padding: 10px;
     background:#181c22;
     border: 0;
     float: left;
@@ -31,13 +26,13 @@ input[type="text"]{
 }
 
 button{
-    padding: 20px;
+    padding: 15px;
     width: 30%;
-    float: left;
-    background: #23282e;
+    float: right;
+    background: white;
     border: 0;
     box-sizing: border-box;
-    color: #fff;
+    color: black;
     cursor: pointer;
     font-size: 20px;
 }

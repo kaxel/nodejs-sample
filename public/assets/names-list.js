@@ -20,10 +20,10 @@ $(document).ready(function(){
   });
 
   $('li').on('click', function(){
-      var item = $(this).text().replace(/ /g, "-");
+	  var target_id = parseInt(this.id); 
       $.ajax({
         type: 'DELETE',
-        url: '/list/' + item,
+        url: '/list/' + target_id,
         success: function(data){
           //refresh the page - do I need to use jQuery here?
           location.reload();
