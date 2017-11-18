@@ -31,5 +31,15 @@ $(document).ready(function(){
         }
       });
   });
+  
+  $('#delete-page-link').on('click', function(){
+	  var x = document.getElementById("hidden-delete");
+	      if (x.style.display === "none") {
+	          x.style.display = "block";
+	      } else {
+	          x.style.display = "none";
+	      }
+  });
+  //delete-page-link
 
 });

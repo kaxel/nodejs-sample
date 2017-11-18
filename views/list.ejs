@@ -26,6 +26,9 @@
 <body>
 	
   <div class="container">
+	  <div class="row" id="toolbar">
+		  <a id="delete-page-link"><img src="assets/del-button.png"/></a>
+	  </div>
 	  <div class="row">
 		  <form method="POST">
 			  <table class="table">
@@ -55,7 +58,8 @@
 		    
 		  </form>
 	  </div>
-      <div class="row">
+      <div class="row" id="hidden-delete" style="display: none;">
+		  <h2>1 click delete</h2>
 		  <div class="col">
     	  	      <div id="list-table">
     	  		    <ul>
