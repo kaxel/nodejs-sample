@@ -23,17 +23,15 @@ module.exports = function(app){
 	app.get('/list', function(req, res){
 		
 		// get list
-		let sql = 'select id, first, last from names';
+		let sql = 'select * from names';
 		let query = db.query(sql, (err, result) => {
 			if(err) throw err;
 			//console.log(result);
 			
-			var rows = result.map(function(x) {
-   			    return x.first + " " + x.last + " : " + x.id;
-			});
+			var rows = result;
 			//console.log(rows);
 			
-			res.render('list', {names: rows });
+			res.render('list', {names: rows});
 		});
 		
 		
