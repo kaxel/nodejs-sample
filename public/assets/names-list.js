@@ -41,5 +41,25 @@ $(document).ready(function(){
 	      }
   });
   //delete-page-link
+  
+  $('#show-input-link').on('click', function(){
+	  var x = document.getElementById("main-form");
+	      if (x.style.display === "none") {
+	          x.style.display = "block";
+	      } else {
+	          x.style.display = "none";
+	      }
+  });
+  //main-form
+  
+  $('#show-list-link').on('click', function(){
+	  var x = document.getElementById("hidden-main-list");
+	      if (x.style.display === "none") {
+	          x.style.display = "block";
+	      } else {
+	          x.style.display = "none";
+	      }
+  });
+  //delete-page-link
 
 });

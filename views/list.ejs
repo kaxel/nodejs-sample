@@ -27,9 +27,11 @@
 	
   <div class="container">
 	  <div class="row" id="toolbar">
-		  <a id="delete-page-link"><img src="assets/del-button.png"/></a>
+		  <p><a id="show-input-link"><img src="assets/show-input-button.png"/></a></p>
+		  <p><a id="show-list-link"><img src="assets/show-list-button.png"/></a></p>
+		  <p><a id="delete-page-link"><img src="assets/del-button.png"/></a></p>
 	  </div>
-	  <div class="row">
+	  <div class="row" id="main-form">
 		  <form method="POST">
 			  <table class="table">
 			    <tbody>
@@ -57,6 +59,9 @@
 		    
 		    
 		  </form>
+	  </div>
+	  <div class="row" id="hidden-main-list" style="display: none;">
+		  THIS IS THE BIG TABLE
 	  </div>
       <div class="row" id="hidden-delete" style="display: none;">
 		  <h2>1 click delete</h2>
