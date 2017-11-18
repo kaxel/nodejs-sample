@@ -10,7 +10,7 @@ $(document).ready(function(){
         url: '/list',
         data: todo,
         success: function(data){
-          //do something with the data via front-end framework
+          //refresh the page - do I need to use jQuery here?
           location.reload();
         }
       });
@@ -25,7 +25,7 @@ $(document).ready(function(){
         type: 'DELETE',
         url: '/list/' + item,
         success: function(data){
-          //do something with the data via front-end framework
+          //refresh the page - do I need to use jQuery here?
           location.reload();
         }
       });
