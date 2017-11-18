@@ -3,12 +3,11 @@ $(document).ready(function(){
   $('form').on('submit', function(){
 
       var item = $('form input');
-      var todo = {item: item.val()};
 
       $.ajax({
         type: 'POST',
         url: '/list',
-        data: todo,
+        data: item,
         success: function(data){
           //refresh the page - do I need to use jQuery here?
           location.reload();
