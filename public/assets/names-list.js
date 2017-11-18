@@ -20,13 +20,14 @@ $(document).ready(function(){
   });
 
   $('li').on('click', function(){
-	  var target_id = parseInt(this.id); 
+	  var target_id = parseInt(this.id);
+	  $(this).remove();
       $.ajax({
         type: 'DELETE',
         url: '/list/' + target_id,
         success: function(data){
-          //refresh the page - do I need to use jQuery here?
-          location.reload();
+          //refresh the page - remove li
+			console.log("cool beans");
         }
       });
   });
