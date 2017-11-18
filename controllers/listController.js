@@ -1,5 +1,23 @@
 var bodyParser = require('body-parser');
 
+//connect to the database;
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : '',
+  database : 'nodely'
+});
+
+connection.connect();
+
+connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+  if (error) throw error;
+  console.log('The solution is: ', results[0].solution);
+});
+
+connection.end();
+
 var data = [{item: "Joe Shmoe"}, {item: "Nancy Pelosi"}, {item: "Carl Rove"}]
 var urlEncodedParser = bodyParser.urlencoded({extended: false});
 

@@ -1,7 +1,7 @@
-var express = require('express');
-var listController = require('./controllers/listController');
+const express = require('express');
+const  listController = require('./controllers/listController');
 
-var app = express();
+const app = express();
 
 //set up the template engine
 app.set('view engine', 'ejs'); 
@@ -13,7 +13,9 @@ app.use(express.static('./public'));
 listController(app);
 
 //port listener
-app.listen(3000);
-console.log('You are listening to the sound of port 3000');
+app.listen('3000', () => {
+	console.log('You are listening to the sound of port 3000');
+});
+
 
 // USING MVC
