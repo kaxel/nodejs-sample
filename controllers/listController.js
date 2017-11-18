@@ -21,6 +21,13 @@ db.connect((err) => {
 module.exports = function(app){
 	
 	app.get('/list', function(req, res){
+		console.log("get list");
+		console.log(req.params);
+		
+		if (req.params.added==1) {
+			alert("turn it on!");
+			document.getElementById("hidden-main-list").style.display = "block";
+		};
 		
 		// get list
 		let sql = 'select * from names';
