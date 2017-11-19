@@ -42,6 +42,29 @@
         <a href='#' id="show-list-link" class='button'>LIST</a>
       </p>
     </div>
+	<!-- BELOW is a sort of hack I am using to message the list that server side validations have failed. I tried using the res.locals object but something was no bueno.
+	Basically, in retrospect I might have used handlebars instead of EJS for the templating. Or even gone React/Redux instead of Express. So many options. 
+	There are plenty of things left that I would do to improve this product, but it certainly has attained valid POC status and I think it is ready to fly. 
+	I hope you like it, Shem! -->
+    <script>
+		var params = {};
+		if (location.search) {
+		    var parts = location.search.substring(1).split('&');
+
+		    for (var i = 0; i < parts.length; i++) {
+		        var nv = parts[i].split('=');
+		        if (!nv[0]) continue;
+		        params[nv[0]] = nv[1] || true;
+		    }
+		}
+		//looking for the param I want
+		var failed_server_validation = params.failed_server_validation;
+		if (failed_server_validation) {
+			alert("Server side validation failed.");
+			window.location="/";
+		}
+	</script>
+
     <div class="row" id="main-form" style="display: none;">
 	  <form method="POST">
 	    <table class="table input_form">

@@ -3,15 +3,19 @@ var listController = require('./controllers/listController');
 
 var app = express();
 
-app.get('/', function (req, res) {
-  res.redirect('/list');
-})
-
 //set up the template engine
 app.set('view engine', 'ejs'); 
 
 //set up static files
 app.use(express.static('./public'));
+app.use(function(req, res, next){
+    console.log('incomming req : ' + req.url);
+    next();
+});
+
+app.get('/', function (req, res) {
+  res.redirect('/list');
+})
 
 //fire controller
 listController(app);

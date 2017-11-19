@@ -33,7 +33,7 @@ module.exports = function(app){
 	
 	app.post('/list', urlEncodedParser, function(req, res){
 		
-		console.log(req.body);
+		//console.log(req.body);
 		// gather fields for INSERT
 		var firstname = req.body.firstname;
 		var lastname = req.body.lastname;
@@ -59,7 +59,8 @@ module.exports = function(app){
 			});
 			
 		} else {
-			console.log("data cannot be validated; server side validation has failed.");
+			console.log("server side validation has failed.");
+			res.redirect('/list?failed_server_validation=1');
 		};
 		
 		
