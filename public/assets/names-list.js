@@ -31,9 +31,9 @@ $(document).ready(function(){
   $('#show-input-link').on('click', function(){
 	  var x = document.getElementById("main-form");
 	      if (x.style.display === "none") {
-	          x.style.display = "block";
+	          $( "#main-form" ).fadeIn( "fast" );
 	      } else {
-	          x.style.display = "none";
+			  $( "#main-form" ).fadeOut( "fast" );
 	      }
   });
   //end main-form
@@ -41,9 +41,9 @@ $(document).ready(function(){
   $('#show-list-link').on('click', function(){
 	  var x = document.getElementById("hideable-main-list");
 	      if (x.style.display === "none") {
-	          x.style.display = "block";
+	          $( "#hideable-main-list" ).fadeIn( "fast" );
 	      } else {
-	          x.style.display = "none";
+	          $( "#hideable-main-list" ).fadeOut( "fast" );
 	      }
   });
   //end delete-page-link
