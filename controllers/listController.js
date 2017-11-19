@@ -1,7 +1,6 @@
-var bodyParser = require('body-parser');
-
+const bodyParser = require('body-parser');
 const mysql = require('mysql');
-var urlEncodedParser = bodyParser.urlencoded({extended: false});
+const urlEncodedParser = bodyParser.urlencoded({extended: false});
 
 //connect to the database;
 const db = mysql.createConnection({
@@ -17,6 +16,8 @@ db.connect((err) => {
 	}
 	console.log('Mysql connected.');
 });
+
+var tools = require('../public/assets/functions');
 
 module.exports = function(app){
 	
@@ -38,19 +39,27 @@ module.exports = function(app){
 		var address_city = req.body.address_city;
 		var address_state = req.body.address_state;
 		var address_zip = req.body.address_zip;
-		console.log(firstname + " " + lastname + " at " + address_street + " in " + address_city + ", " + address_state + " " + address_zip);
-		console.log("is being added to the database.");
+		// last round of validations
+		if (tools.validate_form_submission(firstname, lastname, address_street, address_city, address_state, address_zip)) {
+			console.log(firstname + " " + lastname + " at " + address_street + " in " + address_city + ", " + address_state + " " + address_zip);
+			console.log("is being added to the database.");
 		
-		// INSERT QUERY
-		let sql = "INSERT INTO `names` (`first`, `last`, `address`, `city`, `state`, `zip`) VALUES ('" + firstname + "', '" + lastname + "', '" + address_street + "', '" + address_city + "', '" + address_state + "', '" + address_zip + "');";
-		//console.log(sql);
-		let query = db.query(sql, (err, result) => {
-			if(err) {throw err}
-			else {
-				console.log("time to add " + firstname + " to the front end.");
-			};
-			res.redirect('/list');
-		});
+			// INSERT QUERY
+			let sql = "INSERT INTO `names` (`first`, `last`, `address`, `city`, `state`, `zip`) VALUES ('" + firstname + "', '" + lastname + "', '" + address_street + "', '" + address_city + "', '" + address_state + "', '" + address_zip + "');";
+			//console.log(sql);
+			let query = db.query(sql, (err, result) => {
+				if(err) {throw err}
+				else {
+					console.log("time to add " + firstname + " to the front end.");
+				};
+				res.redirect('/list');
+			});
+			
+		} else {
+			console.log("data cannot be validated; server side validation has failed.");
+		};
+		
+		
 	});
 	
 	//use req.params.item for delete
