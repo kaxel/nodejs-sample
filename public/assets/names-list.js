@@ -9,8 +9,7 @@ $(document).ready(function(){
         url: '/list',
         data: item,
         success: function(data){
-          //refresh the page - do I need to use jQuery here?
-          location.reload();
+			location.reload();
         }
       });
 
@@ -18,9 +17,9 @@ $(document).ready(function(){
 
   });
 
-  $('li').on('click', function(){
-	  var target_id = parseInt(this.id);
-	  $(this).remove();
+  $('.mydel').on('click', function(){
+	  var target_id = this.id;
+	  //$(this).parent.remove();
       $.ajax({
         type: 'DELETE',
         url: '/list/' + target_id,
@@ -29,6 +28,8 @@ $(document).ready(function(){
 			console.log("deleted succesfully.");
         }
       });
+	  
+      window.location='/list';
   });
   
   $('#delete-page-link').on('click', function(){

@@ -21,8 +21,6 @@ db.connect((err) => {
 module.exports = function(app){
 	
 	app.get('/list', function(req, res){
-		console.log("get list");
-		console.log(req.params);
 		
 		if (req.params.added==1) {
 			alert("turn it on!");
@@ -75,12 +73,7 @@ module.exports = function(app){
 		let sql = 'delete from names where id=' + req.params.item + ";";
 		//console.log(sql);
 		let query = db.query(sql, (err, result) => {
-			if(err) 
-				{throw err;} 
-			else 
-			{//cleanup
-				console.log("remove id=" + req.params.item);
-			};
+			if(err) throw err;
 			res.redirect('/list');
 		});
 		

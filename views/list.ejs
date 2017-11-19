@@ -66,11 +66,12 @@
 				<th scope="col">City</th>
 				<th scope="col">State</th>
 				<th scope="col">Zip</th>
+				<th scope='col'>delete</th>
 		      </tr>
 		    </thead>
 		    <tbody>
 	  		  <% for (var i=0; i < names.length; i++){%>
-			      <tr>
+			      <tr id="rowid<%=names[i].id%>">
 			        <th scope="row"><%=i+1%></th>
 			        <td><%=names[i].first%></td>
 			        <td><%=names[i].last%></td>
@@ -78,6 +79,7 @@
 					<td><%=names[i].city%></td>
 					<td><%=names[i].state%></td>
 					<td><%=names[i].zip%></td>
+					<td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs mydel" data-title="Delete" id="<%= names[i].id %>"><span class="glyphicon glyphicon-trash"></span></button></p></td>
 			      </tr>
 	  		  <% } %>
 		    </tbody>
