@@ -1,16 +1,17 @@
 
-// tools.js
+// functions.js
 // ========
 module.exports = {
 	
     validate_form_submission: function (first_name, last_name, street_address, city, state, zip) {
-		
-		var regex = /([<>\/])/;
-		var function_reply = true;
+		// check for <>and slashes / and \
+		var regex = /([<>\/\\])/;
+		var function_reply = true; // default is true unless proven otherwise
 		
 		//validate presence of fields
 		if (!(first_name) || !(last_name) || !(street_address) || !(city) || !(state) || !(zip))
 		{
+			// send back false if we are missing fields (the form should have already checked);
 			function_reply = false;
 		};
 		
