@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
 //set up the template engine
 app.set('view engine', 'ejs'); 
 
-//set up  static files
+//set up static files
 app.use(express.static('./public'));
 
 //fire controller

@@ -5,7 +5,7 @@ buttons from here: http://livetools.uiparade.com/button-builder.html#
 took a few cues on setting up the Express MVC from this video: https://www.youtube.com/watch?v=nleI7IbpGhc&list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp&index=32
 favicon art from: https://www.favicon-generator.org
 
-and the rest is Node.js, npm, JQuery, Express, and ejs templates. I use the npm mysql module for database access.
+and the rest is Node.js, JQuery, Express, and an ejs template. I use the Node.js mysql module for database access.
 
 start with:
 ```

@@ -46,5 +46,5 @@ $(document).ready(function(){
 	          $( "#hideable-main-list" ).fadeOut( "fast" );
 	      }
   });
-  //end delete-page-link
+  //end hideable-main-list
 });
