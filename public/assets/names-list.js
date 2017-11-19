@@ -18,14 +18,19 @@ $(document).ready(function(){
 
   $('.mydel').on('click', function(){
 	  var target_id = this.id;
-      $.ajax({
-        type: 'DELETE',
-        url: '/list/' + target_id,
-        success: function(data){
-		  console.log("deleted succesfully.");
-        }
-      });
-      window.location='/list';
+	  
+	  var result = confirm("Please confirm that you would like to delete this record.");
+	  if (result) {
+	      $.ajax({
+	        type: 'DELETE',
+	        url: '/list/' + target_id,
+	        success: function(data){
+			  console.log("deleted succesfully.");
+	        }
+	      });
+	      
+	  } 
+	  window.location='/list';
   });
   
   $('#show-input-link').on('click', function(){
