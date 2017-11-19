@@ -1,2 +1,26 @@
 # nodejs-sample
 node sample site
+
+buttons from here: http://livetools.uiparade.com/button-builder.html#
+took a few cues on setting up the Express MVC from this video: https://www.youtube.com/watch?v=nleI7IbpGhc&list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp&index=32
+
+and the rest is Node.js, npm, JQuery, Express, and ejs templates. I use the npm mysql module for database access.
+
+start with:
+```
+git clone https://github.com/kaxel/nodejs-sample
+
+cd nodejs-sample
+
+npm install -g nodemon
+
+mysql -u root (I assume your mysql root user needs no password);
+
+CREATE DATABASE nodely;
+
+source sql/startfile.sql;
+
+exit;
+```
+
+and then a call to nodemon should get you going.
