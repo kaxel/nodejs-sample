@@ -42,28 +42,6 @@
         <a href='#' id="show-list-link" class='button'>LIST</a>
       </p>
     </div>
-	<!-- BELOW is a sort of hack I am using to message the list that server side validations have failed. I tried using the res.locals object but something was no bueno.
-	Basically, in retrospect I might have used handlebars instead of EJS for the templating. Or even gone React/Redux instead of Express. So many options. 
-	There are plenty of things left that I would do to improve this product, but it certainly has attained valid POC status and I think it is ready to fly. 
-	I hope you like it, Shem! -->
-    <script>
-		var params = {};
-		if (location.search) {
-		    var parts = location.search.substring(1).split('&');
-
-		    for (var i = 0; i < parts.length; i++) {
-		        var nv = parts[i].split('=');
-		        if (!nv[0]) continue;
-		        params[nv[0]] = nv[1] || true;
-		    }
-		}
-		//looking for the param I want
-		var failed_server_validation = params.failed_server_validation;
-		if (failed_server_validation) {
-			alert("Server side validation failed.");
-			window.location="/";
-		}
-	</script>
 
     <div class="row" id="main-form" style="display: none;">
 	  <form method="POST">
@@ -71,8 +49,8 @@
 	      <tbody>
 	        <tr>
 	          <th scope="row">Name</th>
-	          <td><input type="text" name="firstname" placeholder="First name" required /></td>
-	          <td><input type="text" name="lastname" placeholder="Last name" required /></td>
+	          <td><input type="text" name="firstname" id="input_firstname" placeholder="First name" required /></td>
+	          <td><input type="text" name="lastname" id="input_lastname" placeholder="Last name" required /></td>
 	        </tr>
 	        <tr>
 	          <th scope="row">Address</th>
@@ -140,13 +118,18 @@
 	        </tr>
 	        <tr>
 	          <th scope="row">Zip</th>
-	          <td><input type="text" name="address_zip" placeholder="Zip code" required /></td>
+	          <td><input type="text" name="address_zip" id="input_zip" placeholder="Zip code" required /></td>
 		      <td><button type="submit">Add Record</button></td>
 	        </tr>
 	      </tbody>
 	    </table>
 	  </form>
     </div>
+	<div class="row">
+	  <div class="alert alert-warning" id="alert_message" style="display: none;">
+	    <strong>Warning!</strong> The server side validation has failed.
+	  </div>
+	</div>
     <div class="row" id="hideable-main-list">
       <table class="table table-striped">
         <thead>
@@ -192,6 +175,45 @@
 
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  
+<!-- BELOW is a sort of hack I am using to message the list that server side validations have failed. I tried using the res.locals object but something was no bueno.
+In retrospect I might have used handlebars instead of EJS for the templating. Or even gone React/Redux instead of Express. So many options. 
+  
+There are plenty of things left that I would do to improve this product, but it certainly has attained valid POC status and I think it is ready to fly.
+
+I hope you like it, Shem! -->
+  <script>
+	var params = {};
+	if (location.search) {
+	    var parts = location.search.substring(1).split('&');
+
+	    for (var i = 0; i < parts.length; i++) {
+	        var nv = parts[i].split('=');
+	        if (!nv[0]) continue;
+	        params[nv[0]] = nv[1] || true;
+	    }
+	}
+	//looking for the param I want
+	var failed_server_validation = params.failed_server_validation;
+	if (failed_server_validation) {
+			$( "#alert_message" ).fadeIn( "fast" );
+			$( "#main-form" ).fadeIn( "fast" );
+		}
+	
+	var fname = params.fname;
+	var lname = params.lname;
+	var zip = params.zip;
+	
+	if (lname) {
+		$("#input_firstname").val(fname);
+	}
+	if (fname) {
+		$("#input_lastname").val(lname);
+	}
+	if (zip) {
+		$("#input_zip").val(zip);
+	}
+</script>
 	
 </body>
 </html>

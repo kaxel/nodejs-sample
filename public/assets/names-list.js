@@ -41,6 +41,7 @@ $(document).ready(function(){
 	          $( "#main-form" ).fadeIn( "fast" );
 	      } else {
 			  $( "#main-form" ).fadeOut( "fast" );
+			  $( "#alert_message" ).fadeOut( "fast" ); // if we turn off the input form, the message should turn off too
 	      }
   });
   //end main-form

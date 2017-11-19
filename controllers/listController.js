@@ -35,8 +35,8 @@ module.exports = function(app){
 		
 		//console.log(req.body);
 		// gather fields for INSERT
-		var firstname = req.body.firstname;
-		var lastname = req.body.lastname;
+		var firstname = req.body.firstname.trim();
+		var lastname = req.body.lastname.trim();
 		var address_street = req.body.address_street;
 		var address_city = req.body.address_city;
 		var address_state = req.body.address_state;
@@ -60,7 +60,8 @@ module.exports = function(app){
 			
 		} else {
 			console.log("server side validation has failed.");
-			res.redirect('/list?failed_server_validation=1');
+			var url_string = '/list?failed_server_validation=1&fname='+firstname+'&lname='+lastname;
+			res.redirect(url_string);
 		};
 		
 		
