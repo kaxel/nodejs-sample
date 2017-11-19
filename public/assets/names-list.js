@@ -3,6 +3,8 @@ $(document).ready(function(){
   $('form').on('submit', function(){
 
       var item = $('form input');
+	  //gotta jigger the state select into the form submit
+	  item.state_select = document.getElementById("address_state").val();
 
       $.ajax({
         type: 'POST',

@@ -32,6 +32,8 @@ module.exports = function(app){
 	});
 	
 	app.post('/list', urlEncodedParser, function(req, res){
+		
+		console.log(req.body);
 		// gather fields for INSERT
 		var firstname = req.body.firstname;
 		var lastname = req.body.lastname;
@@ -39,10 +41,11 @@ module.exports = function(app){
 		var address_city = req.body.address_city;
 		var address_state = req.body.address_state;
 		var address_zip = req.body.address_zip;
+		console.log(firstname + " " + lastname + " at " + address_street + " in " + address_city + ", " + address_state + " " + address_zip);
 		// last round of validations
 		if (tools.validate_form_submission(firstname, lastname, address_street, address_city, address_state, address_zip)) {
-			console.log(firstname + " " + lastname + " at " + address_street + " in " + address_city + ", " + address_state + " " + address_zip);
-			console.log("is being added to the database.");
+			
+			console.log("a record is being added to the database.");
 		
 			// INSERT QUERY
 			let sql = "INSERT INTO `names` (`first`, `last`, `address`, `city`, `state`, `zip`) VALUES ('" + firstname + "', '" + lastname + "', '" + address_street + "', '" + address_city + "', '" + address_state + "', '" + address_zip + "');";

@@ -11,7 +11,7 @@ h3 {display: inline;}
 	float: right;
 	padding-top: 30px;
 }
-
+#address_state { width: 175px;}
 #image_anchor {
 	padding: 15px;
 	text-decoration: none;
