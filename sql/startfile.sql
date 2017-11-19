@@ -38,3 +38,15 @@ VALUES
 INSERT INTO `names` (`first`, `last`, `address`, `city`, `state`, `zip`)
 VALUES
 	('David', 'Letterman', 'Mamas Farm', 'North Salem', 'NY', '10560');
+	
+INSERT INTO `names` (`first`, `last`, `address`, `city`, `state`, `zip`)
+VALUES
+    ('Paul', 'Thorn', '894 Barton Woods Road', 'Atlanta', 'GA', '30307');
+    
+INSERT INTO `names` (`first`, `last`, `address`, `city`, `state`, `zip`)
+VALUES
+    ('Bilbo', 'Baggins', 'Bag End', 'Elizabeth River Shire', 'VA', '23669');
+	
+INSERT INTO `names` (`first`, `last`, `address`, `city`, `state`, `zip`)
+VALUES
+    (' Lupe', 'Fiasco', '555 Washington Ave', 'Miami Beach', 'FL', '33139');
