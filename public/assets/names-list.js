@@ -39,7 +39,7 @@ $(document).ready(function(){
   //end main-form
   
   $('#show-list-link').on('click', function(){
-	  var x = document.getElementById("hidden-main-list");
+	  var x = document.getElementById("hideable-main-list");
 	      if (x.style.display === "none") {
 	          x.style.display = "block";
 	      } else {
