@@ -3,6 +3,10 @@ var listController = require('./controllers/listController');
 
 var app = express();
 
+app.get('/', function (req, res) {
+  res.redirect('/list');
+})
+
 //set up the template engine
 app.set('view engine', 'ejs'); 
 

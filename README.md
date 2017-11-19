@@ -24,6 +24,6 @@ source sql/startfile.sql;
 exit;
 ```
 
-and then a call to nodemon should get you going.
+and then a call to nodemon should get you going. Just open a browser and go to http://localhost:3000/
 
 If you do have a password for mysql root user, then shove it into listController yourself, right at the top of the page.
