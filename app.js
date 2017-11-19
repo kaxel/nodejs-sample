@@ -16,6 +16,3 @@ listController(app);
 app.listen('3000', () => {
 	console.log('You are listening to the sound of port 3000');
 });
-
-
-// USING MVC

@@ -1,4 +1,3 @@
-
 #list-table form:after{
     margin: 0;
     content: '';
@@ -9,6 +8,10 @@
 #toolbar {
 	float: right;
 	padding-top: 30px;
+}
+
+#image_anchor {
+	padding: 15px;
 }
 
 input[type="text"]{

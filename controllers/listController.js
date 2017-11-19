@@ -21,25 +21,13 @@ db.connect((err) => {
 module.exports = function(app){
 	
 	app.get('/list', function(req, res){
-		
-		if (req.params.added==1) {
-			alert("turn it on!");
-			document.getElementById("hidden-main-list").style.display = "block";
-		};
-		
 		// get list
 		let sql = 'select * from names';
 		let query = db.query(sql, (err, result) => {
 			if(err) throw err;
-			//console.log(result);
-			
 			var rows = result;
-			//console.log(rows);
-			
 			res.render('list', {names: rows});
 		});
-		
-		
 	});
 	
 	app.post('/list', urlEncodedParser, function(req, res){
@@ -59,7 +47,6 @@ module.exports = function(app){
 		let query = db.query(sql, (err, result) => {
 			if(err) {throw err}
 			else {
-				//cleanup
 				console.log("time to add " + firstname + " to the front end.");
 			};
 			res.redirect('/list');
@@ -67,7 +54,6 @@ module.exports = function(app){
 	});
 	
 	//use req.params.item for delete
-	
 	app.delete('/list/:item', function(req, res){
 		// get list
 		let sql = 'delete from names where id=' + req.params.item + ";";
@@ -76,8 +62,5 @@ module.exports = function(app){
 			if(err) throw err;
 			res.redirect('/list');
 		});
-		
 	});
-	
-	
 };

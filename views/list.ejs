@@ -2,94 +2,107 @@
 <html lang="en">
 <head>
 	<title>Node JS Sample</title>
-
     <!-- Custom styles for this template -->
     <link href="/assets/styles.css" rel="stylesheet" type="text/css"/>
-
-    
 	<meta charset="utf-8">
     <meta name="description" content="written for RVTD">
     <meta name="author" content="Krister Axel">
-
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 	<script src="/assets/names-list.js"></script>
 
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link rel="shortcut icon" href="http://www.iconj.com/ico/z/6/z6zkji568o.ico" type="image/x-icon" />
+    <link rel="shortcut icon" ref="assets/b9063f20945a631c9ac888e532d799ea.ico/favicon-16x16.png" type="image/x-icon" />
+	
+	<link rel="apple-touch-icon" sizes="57x57" href="assets/b9063f20945a631c9ac888e532d799ea.ico/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="assets/b9063f20945a631c9ac888e532d799ea.ico/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="assets/b9063f20945a631c9ac888e532d799ea.ico/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/b9063f20945a631c9ac888e532d799ea.ico/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="assets/b9063f20945a631c9ac888e532d799ea.ico/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="assets/b9063f20945a631c9ac888e532d799ea.ico/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="assets/b9063f20945a631c9ac888e532d799ea.ico/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="assets/b9063f20945a631c9ac888e532d799ea.ico/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/b9063f20945a631c9ac888e532d799ea.ico/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="assets/b9063f20945a631c9ac888e532d799ea.ico/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/b9063f20945a631c9ac888e532d799ea.ico/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/b9063f20945a631c9ac888e532d799ea.ico/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/b9063f20945a631c9ac888e532d799ea.ico/favicon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
 </head>
 <body>
 	
   <div class="container">
-	  <a href="#" class="navbar-left"><img src="assets/rvtd.png"></a>
-	  <div class="row" id="toolbar">
-		  <p><a href='#' id="show-input-link" class='button'>INPUT</a>
-			 <a href='#' id="show-list-link" class='button'>LIST</a></p>
-	  </div>
-	  <div class="row" id="main-form" style="display: none;">
-		  <form method="POST">
-			  <table class="table">
-			    <tbody>
-			      <tr>
-			        <th scope="row">Name</th>
-			        <td><input type="text" name="firstname" placeholder="firstname" required /></td>
-			        <td><input type="text" name="lastname" placeholder="lastname" required /></td>
-			      </tr>
-			      <tr>
-			        <th scope="row">Address</th>
-			        <td colspan=2><input type="text" name="address_street" placeholder="your address" required /></td>
-			      </tr>
-			      <tr>
-			        <th scope="row">City, state</th>
-			        <td><input type="text" name="address_city" placeholder="City" required /></td>
-			        <td><input type="text" name="address_state" placeholder="State" required /></td>
-			      </tr>
-			      <tr>
-			        <th scope="row">zip</th>
-			        <td><input type="text" name="address_zip" placeholder="Zip code" required /></td>
-					<td><button type="submit">Add Record</button></td>
-			      </tr>
-			    </tbody>
-			  </table>
-		    
-		    
-		  </form>
-	  </div>
-	  <div class="row" id="hidden-main-list">
-		  
-		  <table class="table table-striped">
-		    <thead>
-		      <tr>
-		        <th scope="col">#</th>
-		        <th scope="col">First Name</th>
-		        <th scope="col">Last Name</th>
-		        <th scope="col">Address</th>
-				<th scope="col">City</th>
-				<th scope="col">State</th>
-				<th scope="col">Zip</th>
-				<th scope='col'>delete</th>
-		      </tr>
-		    </thead>
-		    <tbody>
-	  		  <% for (var i=0; i < names.length; i++){%>
-			      <tr id="rowid<%=names[i].id%>">
-			        <th scope="row"><%=i+1%></th>
-			        <td><%=names[i].first%></td>
-			        <td><%=names[i].last%></td>
-			        <td><%=names[i].address%></td>
-					<td><%=names[i].city%></td>
-					<td><%=names[i].state%></td>
-					<td><%=names[i].zip%></td>
-					<td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs mydel" data-title="Delete" id="<%= names[i].id %>"><span class="glyphicon glyphicon-trash"></span></button></p></td>
-			      </tr>
-	  		  <% } %>
-		    </tbody>
-		  </table>
-		  
-		  
-	  </div>
-      
+    <a href="#" class="navbar-left" id="image_anchor"><img src="assets/rvtd.png"></a>
+    <div class="row" id="toolbar">
+      <p>
+	    <a href='#' id="show-input-link" class='button'>INPUT</a>
+        <a href='#' id="show-list-link" class='button'>LIST</a>
+      </p>
+    </div>
+    <div class="row" id="main-form" style="display: none;">
+	  <form method="POST">
+	    <table class="table">
+	      <tbody>
+	        <tr>
+	          <th scope="row">Name</th>
+	          <td><input type="text" name="firstname" placeholder="firstname" required /></td>
+	          <td><input type="text" name="lastname" placeholder="lastname" required /></td>
+	        </tr>
+	        <tr>
+	          <th scope="row">Address</th>
+	          <td colspan=2><input type="text" name="address_street" placeholder="your address" required /></td>
+	        </tr>
+	        <tr>
+	          <th scope="row">City, state</th>
+	          <td><input type="text" name="address_city" placeholder="City" required /></td>
+	          <td><input type="text" name="address_state" placeholder="State" required /></td>
+	        </tr>
+	        <tr>
+	          <th scope="row">zip</th>
+	          <td><input type="text" name="address_zip" placeholder="Zip code" required /></td>
+		      <td><button type="submit">Add Record</button></td>
+	        </tr>
+	      </tbody>
+	    </table>
+	  </form>
+    </div>
+    <div class="row" id="hidden-main-list">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+		    <th scope="col">First Name</th>
+		    <th scope="col">Last Name</th>
+		    <th scope="col">Address</th>
+			<th scope="col">City</th>
+			<th scope="col">State</th>
+			<th scope="col">Zip</th>
+			<th scope='col'>delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (var i=0; i < names.length; i++){%>
+            <tr id="rowid<%=names[i].id%>">
+              <th scope="row"><%=i+1%></th>
+			  <td><%=names[i].first%></td>
+			  <td><%=names[i].last%></td>
+			  <td><%=names[i].address%></td>
+		      <td><%=names[i].city%></td>
+		      <td><%=names[i].state%></td>
+		      <td><%=names[i].zip%></td>
+		      <td><p data-placement="top" data-toggle="tooltip" title="Delete">
+				  <button class="btn btn-danger btn-xs mydel" data-title="Delete" id="<%= names[i].id %>">
+					  <span class="glyphicon glyphicon-trash"></span></button></p>
+			  </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
   </div>
   
   <!-- Latest compiled and minified CSS -->

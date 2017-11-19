@@ -3,6 +3,7 @@ node sample site
 
 buttons from here: http://livetools.uiparade.com/button-builder.html#
 took a few cues on setting up the Express MVC from this video: https://www.youtube.com/watch?v=nleI7IbpGhc&list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp&index=32
+favicon art from: https://www.favicon-generator.org
 
 and the rest is Node.js, npm, JQuery, Express, and ejs templates. I use the npm mysql module for database access.
 
@@ -24,3 +25,5 @@ exit;
 ```
 
 and then a call to nodemon should get you going.
+
+If you do have a password for mysql root user, then shove it into listController yourself, right at the top of the page.
