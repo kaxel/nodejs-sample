@@ -1,7 +1,7 @@
 # nodejs-sample
 node sample site
 ***
-###DISCLOSURES:
+### DISCLOSURES:
 <blockquote>
 Nav buttons came from here: http://livetools.uiparade.com/button-builder.html#
 
