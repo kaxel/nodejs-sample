@@ -5,7 +5,10 @@
     clear: both;
 }
 
-h3 {display: inline;}
+h3 {
+	display: inline; 
+	padding-left:15px; 
+}
 
 #toolbar {
 	float: right;
