@@ -61,7 +61,7 @@ module.exports = function(app){
 			
 		} else {
 			console.log("server side validation has failed.");
-			var url_string = '/list?failed_server_validation=1&fname='+urlencode(firstname)+'&lname='+urlencode(lastname)+'&address='+urlencode(address_street)+'&city='+urlencode(address_city);
+			var url_string = '/list?failed_server_validation=1&fname='+urlencode(firstname)+'&lname='+urlencode(lastname)+'&address='+urlencode(address_street)+'&city='+urlencode(address_city)+'&state='+address_state;
 			res.redirect(url_string);
 		};
 		

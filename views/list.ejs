@@ -178,7 +178,7 @@
   
 <!-- BELOW is a sort of hack I am using to message the list that server side validations have failed. I tried using the res.locals object but something was no bueno.
 In retrospect I might have used handlebars instead of EJS for the templating. Or even gone React/Redux instead of Express. So many options. 
-There are plenty of things left that I would do to improve this product, but it certainly has attained valid POC status and I think it is ready to fly.
+There are not many things left that I would do to improve the product for this simple use-case, so it certainly has attained valid POC status and I think it is ready to fly.
 I hope you like it, Shem! -->
   <script>
 	var params = {};
@@ -201,7 +201,7 @@ I hope you like it, Shem! -->
 	var lname = params.lname;
 	var address = params.address;
 	var city = params.city;
-	//var state = params.state;
+	var state = params.state;
 	var zip = params.zip;
 	// we have to put the values back into the form on a server failed validation
 	if (lname) {
@@ -218,6 +218,9 @@ I hope you like it, Shem! -->
 	}
 	if (zip) {
 		$("#input_zip").val(zip);
+	}
+	if (state) {
+		$("#address_state").val(state);
 	}
 </script>
 	
