@@ -9,7 +9,7 @@ app.set('view engine', 'ejs');
 //set up static files
 app.use(express.static('./public'));
 app.use(function(req, res, next){
-    console.log('incomming req : ' + req.url);
+    console.log('incoming req : ' + req.url);
     next();
 });
 
