@@ -54,11 +54,11 @@
 	        </tr>
 	        <tr>
 	          <th scope="row">Address</th>
-	          <td colspan=2><input type="text" name="address_street" placeholder="Street address" required /><input type="text" name="state_select" id="state_select" hidden /></td>
+	          <td colspan=2><input type="text" name="address_street" id="input_street" placeholder="Street address" required /><input type="text" name="state_select" id="state_select" hidden /></td>
 	        </tr>
 	        <tr>
 	          <th scope="row">City, State</th>
-	          <td><input type="text" name="address_city" placeholder="City" required /></td>
+	          <td><input type="text" name="address_city" id="input_city" placeholder="City" required /></td>
 	          <td>
 				  <label for="sel1">Select list:</label>
 				  <select class="form-control" name="address_state" id="address_state">
@@ -178,9 +178,7 @@
   
 <!-- BELOW is a sort of hack I am using to message the list that server side validations have failed. I tried using the res.locals object but something was no bueno.
 In retrospect I might have used handlebars instead of EJS for the templating. Or even gone React/Redux instead of Express. So many options. 
-  
 There are plenty of things left that I would do to improve this product, but it certainly has attained valid POC status and I think it is ready to fly.
-
 I hope you like it, Shem! -->
   <script>
 	var params = {};
@@ -193,22 +191,30 @@ I hope you like it, Shem! -->
 	        params[nv[0]] = nv[1] || true;
 	    }
 	}
-	//looking for the param I want
+	//looking for the param I want - we show both list and form on a failed_server_validation
 	var failed_server_validation = params.failed_server_validation;
 	if (failed_server_validation) {
 			$( "#alert_message" ).fadeIn( "fast" );
 			$( "#main-form" ).fadeIn( "fast" );
 		}
-	
 	var fname = params.fname;
 	var lname = params.lname;
+	var address = params.address;
+	var city = params.city;
+	//var state = params.state;
 	var zip = params.zip;
-	
+	// we have to put the values back into the form on a server failed validation
 	if (lname) {
-		$("#input_firstname").val(fname);
+		$("#input_firstname").val(decodeURI(fname));
 	}
 	if (fname) {
-		$("#input_lastname").val(lname);
+		$("#input_lastname").val(decodeURI(lname));
+	}
+	if (fname) {
+		$("#input_street").val(decodeURI(address));
+	}
+	if (fname) {
+		$("#input_city").val(decodeURI(city));
 	}
 	if (zip) {
 		$("#input_zip").val(zip);

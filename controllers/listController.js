@@ -1,6 +1,7 @@
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const urlEncodedParser = bodyParser.urlencoded({extended: false});
+const urlencode = require('urlencode');
 
 //connect to the database;
 const db = mysql.createConnection({
@@ -37,10 +38,10 @@ module.exports = function(app){
 		// gather fields for INSERT
 		var firstname = req.body.firstname.trim();
 		var lastname = req.body.lastname.trim();
-		var address_street = req.body.address_street;
-		var address_city = req.body.address_city;
+		var address_street = req.body.address_street.trim();
+		var address_city = req.body.address_city.trim();
 		var address_state = req.body.address_state;
-		var address_zip = req.body.address_zip;
+		var address_zip = req.body.address_zip.trim();
 		console.log(firstname + " " + lastname + " at " + address_street + " in " + address_city + ", " + address_state + " " + address_zip);
 		// last round of validations
 		if (tools.validate_form_submission(firstname, lastname, address_street, address_city, address_state, address_zip)) {
@@ -60,7 +61,7 @@ module.exports = function(app){
 			
 		} else {
 			console.log("server side validation has failed.");
-			var url_string = '/list?failed_server_validation=1&fname='+firstname+'&lname='+lastname;
+			var url_string = '/list?failed_server_validation=1&fname='+urlencode(firstname)+'&lname='+urlencode(lastname)+'&address='+urlencode(address_street)+'&city='+urlencode(address_city);
 			res.redirect(url_string);
 		};
 		
