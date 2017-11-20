@@ -52,16 +52,13 @@ module.exports = function(app){
 			let sql = "INSERT INTO `names` (`first`, `last`, `address`, `city`, `state`, `zip`) VALUES ('" + firstname + "', '" + lastname + "', '" + address_street + "', '" + address_city + "', '" + address_state + "', '" + address_zip + "');";
 			//console.log(sql);
 			let query = db.query(sql, (err, result) => {
-				if(err) {throw err}
-				else {
-					console.log("time to add " + firstname + " to the front end.");
-				};
+				if(err) {throw err};
 				res.redirect('/list');
 			});
 			
 		} else {
 			console.log("server side validation has failed.");
-			var url_string = '/list?failed_server_validation=1&fname='+urlencode(firstname)+'&lname='+urlencode(lastname)+'&address='+urlencode(address_street)+'&city='+urlencode(address_city)+'&state='+address_state;
+			var url_string = '/list?failed_server_validation=1&fname='+urlencode(firstname)+'&lname='+urlencode(lastname)+'&address='+urlencode(address_street)+'&city='+urlencode(address_city)+'&state='+address_state+'&zip='+urlencode(address_zip);
 			res.redirect(url_string);
 		};
 		

@@ -127,7 +127,7 @@
     </div>
 	<div class="row">
 	  <div class="alert alert-warning" id="alert_message" style="display: none;">
-	    <strong>Warning!</strong> The server side validation has failed.
+	    <strong>Warning!</strong> The server side validation has failed.<br/>The name record you sent to the server could not be saved because of illegal characters in one or more of the fields.<br>Please adjust your form values and try again.
 	  </div>
 	</div>
     <div class="row" id="hideable-main-list">
@@ -217,7 +217,7 @@ I hope you like it, Shem! -->
 		$("#input_city").val(decodeURI(city));
 	}
 	if (zip) {
-		$("#input_zip").val(zip);
+		$("#input_zip").val(decodeURI(zip));
 	}
 	if (state) {
 		$("#address_state").val(state);
